@@ -2,7 +2,7 @@ URL=http://downloads.yeastgenome.org/curation/chromosomal_feature/saccharomyces_
 
 .PHONY: clean cleanall
 
-all: fig-maps.pdf
+all: verified_fasta.fa
 
 saccharomyces_cerevisiae.gff:
 ##	Choose whether to download via wget or curl.
@@ -11,20 +11,18 @@ saccharomyces_cerevisiae.gff:
 #	curl -o saccharomyces_cerevisiae.gff $(URL)
 
 table.txt: saccharomyces_cerevisiae.gff
-	bash make_table.sh saccharomyces_cerevisiae.gff table.txt #runs script, names input/output files
-
-chromosomes.txt: table.txt
-	bash make_chromosomes.sh table.txt chromosomes.txt #runs script, names input/output files
+	bash make_table_and_fasta.sh saccharomyces_cerevisiae.gff table.txt fasta.fa #runs script, names input/output files
 
 verified_genes.txt: table.txt
-	bash make_verified_genes.sh table.txt verified_genes.txt #runs script, names input/output files
+	bash make_verified_genes.sh table.txt verified_genes.bed #runs script, names input/output files
 
-fig-maps.pdf: chromosomes.txt verified_genes.txt
-	Rscript --vanilla make_maps.R chromosomes.txt verified_genes.txt fig-maps.pdf #runs script, names input/output files
+verified_fasta.fa: fasta.fa verified_genes.bed
+	bash make_verified_fasta.sh fasta.fa verified_genes.bed verified_fasta.fa #runs script, names input/output files
 
 clean:
 	rm saccharomyces_cerevisiae.gff				#files to remove with clean command
-	rm table.txt chromosomes.txt verified_genes.txt
+	rm table.txt verified_genes.bed
 
 cleanall: clean
-	rm fig-maps.pdf						#files to remove with cleanall command
+	rm verified_fasta.fa						#files to remove with cleanall command
+	
