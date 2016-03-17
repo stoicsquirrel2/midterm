@@ -13,7 +13,7 @@ saccharomyces_cerevisiae.gff:
 table.txt fasta.fa: saccharomyces_cerevisiae.gff
 	bash make_table_and_fasta.sh saccharomyces_cerevisiae.gff table.txt fasta.fa #runs script, names input/output files
 
-verified_genes.txt: table.txt
+verified_genes.bed: table.txt
 	bash make_verified_genes.sh table.txt verified_genes.bed #runs script, names input/output files
 
 verified_fasta.fa: fasta.fa verified_genes.bed
