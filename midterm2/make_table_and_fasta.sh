@@ -11,3 +11,5 @@ output2=$3
 
 cat "$filename" | sed -e '/##FASTA/,$d' | grep -v '^#' > "$output" #filters text and removes FASTA info and only prints lines that do not have # at beginning
 cat "$filename" | awk '/##FASTA/{y=1;next}y' > "$output2" #create fasta file
+cat "$outout2" | fasta_formatter -w -o
+

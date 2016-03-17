@@ -17,5 +17,5 @@ cat "$filename" |               #reads file
     	name = substr(array[key], 15)                 #sets gene name to variable name
       }
     };
-    print(name, $1, $4, $5, $7);              #outputs name, chromosome, start, end and strand
+    print($1, $4, $5, $7, name);              #outputs name, chromosome, start, end and strand
   }' > "$output"

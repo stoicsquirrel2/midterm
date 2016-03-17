@@ -9,5 +9,5 @@ filename=$1
 filename=$2
 output=$3
 
-bedtools getfasta -fi "$filename" -bed "$filename2" -fo "$output" -name
+bedtools getfasta -fi "$filename" -bed "$filename2" -s  -fo "$output" 
 
