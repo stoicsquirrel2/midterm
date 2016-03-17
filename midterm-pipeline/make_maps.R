@@ -37,8 +37,7 @@ for(index in 1:nrow(chromosome_data)) {
 		type="n",yaxt="n")
 	mtext("position (kb)",1,line=2.5,cex=1.2^-1)
 	mtext(seq_name,2,line=1)
-	title(main = NULL, sub = "For the S. cerevisiae genome, the 35s primary transcript processing sites were located using the gene ontology reference GO:0006365. These sites are plotted by chromosome, with those on the positive strand in red, and the negative strand in blue", xlab = NULL, ylab = NULL,
-	      line = NA, outer = FALSE)
+	
 	#plots the start and end positionof the rRNA processing gene fouund on each chromosome on the positive strand
 	n = pos_strand
 	rect(data$V2[n]/1000,0.5,data$V3[n]/1000,1,border=NA,col=ifelse(rRNAProcessing[n], "#FF0000", "#FFF0F0"))
@@ -47,5 +46,7 @@ for(index in 1:nrow(chromosome_data)) {
 	rect(data$V2[n]/1000,0,data$V3[n]/1000,0.5,border=NA,col=ifelse(rRNAProcessing[n], "#0000FF", "#F0F0FF"))
 
 }
+title(main = NULL, sub = "For the S. cerevisiae genome, the 35s primary transcript processing sites were located using the gene ontology reference GO:0006365. These sites are plotted by chromosome, with those on the positive strand in red, and the negative strand in blue", xlab = NULL, ylab = NULL,
+	      line = NA, outer = FALSE)
 invisible(dev.off())
 embedFonts(pdf_file, options="-DPDFSETTINGS=/prepress")
