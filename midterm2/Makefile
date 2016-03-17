@@ -10,7 +10,7 @@ saccharomyces_cerevisiae.gff:
 	wget -O saccharomyces_cerevisiae.gff $(URL) #download from the URL
 #	curl -o saccharomyces_cerevisiae.gff $(URL)
 
-table.txt: saccharomyces_cerevisiae.gff
+table.txt fasta.fa: saccharomyces_cerevisiae.gff
 	bash make_table_and_fasta.sh saccharomyces_cerevisiae.gff table.txt fasta.fa #runs script, names input/output files
 
 verified_genes.txt: table.txt
