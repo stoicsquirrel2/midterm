@@ -11,18 +11,15 @@ saccharomyces_cerevisiae.gff:
 #	curl -o saccharomyces_cerevisiae.gff $(URL)
 
 table.txt fasta.fa: saccharomyces_cerevisiae.gff
-	bash make_table_and_fasta.sh saccharomyces_cerevisiae.gff table.txt fasta.fa #runs script, names input/output files
-
+	bash make_table_and_fasta.sh saccharomyces_cerevisiae.gff table.txt fasta.fa 
 verified_genes.bed: table.txt
-	bash make_verified_genes.sh table.txt verified_genes.bed #runs script, names input/output files
-
+	bash make_verified_genes.sh table.txt verified_genes.bed 
 verified_fasta.fa: fasta.fa verified_genes.bed
-	bash make_verified_fasta.sh fasta.fa verified_genes.bed verified_fasta.fa #runs script, names input/output files
-
+	bash make_verified_fasta.sh fasta.fa verified_genes.bed verified_fasta.fa 
 clean:
-	rm saccharomyces_cerevisiae.gff				#files to remove with clean command
+	rm saccharomyces_cerevisiae.gff				
 	rm table.txt verified_genes.bed
 
 cleanall: clean
-	rm verified_fasta.fa						#files to remove with cleanall command
+	rm verified_fasta.fa					
 	
