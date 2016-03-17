@@ -46,7 +46,7 @@ for(index in 1:nrow(chromosome_data)) {
 	rect(data$V2[n]/1000,0,data$V3[n]/1000,0.5,border=NA,col=ifelse(rRNAProcessing[n], "#0000FF", "#F0F0FF"))
 
 }
-title(main = NULL, sub = "For the S. cerevisiae genome, the 35s primary transcript processing sites \nwere located using the gene ontology reference GO:0006365. These sites are plotted by chromosome, with those on the positive strand in red, and the negative strand in blue", cex.sub = 0.75, font.sub = 3, col.sub = "red",
+title(main = NULL, sub = "For the S. cerevisiae genome, the 35s primary transcript processing sites were located using the gene ontology reference GO:0006365./nThese sites are plotted by chromosome, with those on the positive strand in red, and the negative strand in blue", cex.sub = 0.75, font.sub = 3, col.sub = "black",
 	      line = NA, outer = FALSE)
 invisible(dev.off())
 embedFonts(pdf_file, options="-DPDFSETTINGS=/prepress")
