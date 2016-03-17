@@ -6,7 +6,7 @@ if [ $# -eq 0 ]; then                                   #error check
 fi
 
 filename=$1
-filename=$2
+filename2=$2
 output=$3
 
 bedtools getfasta -fi "$filename" -bed "$filename2" -s  -fo "$output" 
